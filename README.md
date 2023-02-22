@@ -23,7 +23,7 @@ g++ -std=c++11 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp p
 Running on Macbook Pro M1 Max (64 GB) prints out the following output (slightly varying among iterations):
 
 | Metric | Unoptimized | Optimized | Relative Improvement |
-|----------|------:|------:|
+|----------|------:|------:|------:|
 | Number of iterations | 10000 | 10000 | - |
 | Duration milliseconds `initialize_beliefs.cpp` | 58.514 | 23.583 | 60% |
 | Duration milliseconds `sense.cpp` | 48.234 | 14.519 | 70% |
