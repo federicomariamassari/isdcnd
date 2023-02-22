@@ -20,26 +20,13 @@ g++ -std=c++11 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp p
 
 ### Output
 
-
+Running on Macbook Pro M1 Max (64 GB) prints out the following output:
 
 | Metric | Unoptimized | Optimized |
 |----------|------:|------:|
 | Number of iterations | 10000 | 10000 |
-| Duration initialize beliefs* | 23.583 | |
-
-
-
-```zsh
-number of iterations: 10000 
-duration milliseconds initialize beliefs 23.583
-duration milliseconds sense 14.519
-duration milliseconds blur 29.275
-duration milliseconds normalize 13.76
-duration milliseconds move 11.598
-```
-
-By comparison, the unoptimized code produces:
-
-```zsh
-
-```
+| Duration milliseconds `initialize_beliefs.cpp` | 58.514 | 23.583 |
+| Duration milliseconds `sense.cpp` | 48.234 | 14.519 |
+| Duration milliseconds `blur.cpp` | 83.812 | 29.275 |
+| Duration milliseconds `normalize.cpp` | 46.425 | 13.760 |
+| Duration milliseconds `move.cpp` | 39.099 | 11.598 |
