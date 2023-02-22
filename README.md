@@ -7,3 +7,24 @@ My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 ![Certificate of Completion](certificate-of-completion.png)
 
 ## Project 3: Optimize Histogram Filter
+
+### How to Compile and Run the Project
+
+We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p3`, with `$whoami` the username of the current user (verify on console).
+
+```bash
+cd /home/$whoami/workspace/udacity-isdcnd/projects/p3
+g++ -std=c++11 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp print.cpp sense.cpp zeros.cpp
+./a.out
+```
+
+On Macbook Pro M1 Max 64 GB RAM this prints out the following:
+
+```zsh
+number of iterations: 10000 
+duration milliseconds initialize beliefs 23.583
+duration milliseconds sense 14.519
+duration milliseconds blur 29.275
+duration milliseconds normalize 13.76
+duration milliseconds move 11.598
+```
