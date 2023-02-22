@@ -6,40 +6,40 @@ using namespace std;
 
 t_grid blur(t_grid &grid, float blurring) {
 
-	vector<float>::size_type height = grid.size();
-	vector<float>::size_type width = grid[0].size();
-	
-	static float center = 1. - blurring;
-	static float corner = blurring / 12.;
-	static float adjacent = blurring / 6.;
+    vector<float>::size_type height = grid.size();
+    vector<float>::size_type width = grid[0].size();
 
-	static t_grid window = {
-		{corner, adjacent, corner}, 
-		{adjacent, center, adjacent}, 
-		{corner, adjacent, corner}
-	};
+    static float center = 1. - blurring;
+    static float corner = blurring / 12.;
+    static float adjacent = blurring / 6.;
 
-	t_grid new_grid = zeros(height, width);
+    static t_grid window = {
+        {corner, adjacent, corner}, 
+        {adjacent, center, adjacent}, 
+        {corner, adjacent, corner}
+    };
 
-	float multiplier;
-	int i, j, dx, dy, row, col;
+    t_grid new_grid = zeros(height, width);
 
-	for (i=0; i < height; i++) {
-		for (j=0; j < width; j++) {
+    float multiplier;
+    int i, j, dx, dy, row, col;
 
-			for (dx = -1; dx < 2; dx++) {
-				for (dy = -1; dy < 2; dy++) {
+    for (i=0; i < height; i++) {
+        for (j=0; j < width; j++) {
 
-					multiplier = window[dx+1][dy+1];
+            for (dx = -1; dx < 2; dx++) {
+            for (dy = -1; dy < 2; dy++) {
 
-					row = ((i + dy) % height + height) % height;
-					col = ((j + dx) % width + width) % width;
+            multiplier = window[dx+1][dy+1];
 
-					new_grid[row][col] += (multiplier * grid[i][j]);
-				}
-			}
-		}
-	}
+                    row = ((i + dy) % height + height) % height;
+                    col = ((j + dx) % width + width) % width;
 
-	return new_grid;
+                    new_grid[row][col] += (multiplier * grid[i][j]);
+                }
+            }
+        }
+    }
+
+    return new_grid;
 }
