@@ -20,7 +20,7 @@ g++ -std=c++11 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp p
 
 ### Output
 
-Running on Macbook Pro M1 Max (64 GB) prints out the following output (slightly varying among iterations):
+Running on Macbook Pro M1 Max prints out the following output (slightly varying among trials):
 
 | Metric | Unoptimized | Optimized | Relative Improvement |
 |----------|------:|------:|------:|
@@ -29,4 +29,4 @@ Running on Macbook Pro M1 Max (64 GB) prints out the following output (slightly 
 | Duration milliseconds `sense.cpp` | 48.234 | 14.519 | 70% |
 | Duration milliseconds `blur.cpp` | 83.812 | 29.275 | 72% |
 | Duration milliseconds `normalize.cpp` | 46.425 | 13.760 | 70% |
-| Duration milliseconds `move.cpp` | 39.099 | 11.598 | 30% |
+| Duration milliseconds `move.cpp` | 39.099 | 11.598 | 70% |
