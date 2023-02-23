@@ -27,6 +27,6 @@ Running on Macbook Pro M1 Max prints out the following output (slightly varying 
 | Number of iterations | 10000 | 10000 | - |
 | Duration milliseconds `initialize_beliefs.cpp` | 58.514 | 23.583 | 60% |
 | Duration milliseconds `sense.cpp` | 48.234 | 14.519 | 70% |
-| Duration milliseconds `blur.cpp` | 83.812 | 29.275 | 72% |
+| Duration milliseconds `blur.cpp` | 83.812 | 29.275 | 65% |
 | Duration milliseconds `normalize.cpp` | 46.425 | 13.760 | 70% |
 | Duration milliseconds `move.cpp` | 39.099 | 11.598 | 70% |
