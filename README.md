@@ -18,6 +18,8 @@ g++ -std=c++11 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp p
 ./a.out
 ```
 
+### Unoptimized Starting Code
+
 Unoptimized starting code from Udacity is also included for comparison purposes (in the "unoptimized" folder). It is hosted here because, to the best of my knowledge, no official repository for the code is available online. The code is compiled and run the same way the optimized code is.
 
 ### Output
