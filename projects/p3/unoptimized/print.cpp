@@ -1,4 +1,5 @@
 #include "headers/print.h"
+
 using namespace std;
 
 void print_vector_float(vector< vector <float> > grid) {

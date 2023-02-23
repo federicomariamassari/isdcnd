@@ -1,4 +1,5 @@
 #include "headers/normalize.h"
+
 using namespace std;
 
 vector< vector<float> > normalize(vector< vector <float> > grid) {
