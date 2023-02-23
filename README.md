@@ -10,10 +10,10 @@ My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 
 ### How to Compile and Run the Project
 
-We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p3`, with `$whoami` the username of the current user (verify on console).
+We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p3/optimized`, with `$whoami` the username of the current user (verify on console).
 
 ```bash
-cd /home/$whoami/workspace/udacity-isdcnd/projects/p3
+cd /home/$whoami/workspace/udacity-isdcnd/projects/p3/optimized
 g++ -std=c++11 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp print.cpp sense.cpp zeros.cpp
 ./a.out
 ```
