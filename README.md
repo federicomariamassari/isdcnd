@@ -22,7 +22,7 @@ g++ -std=c++11 tests.cpp
 ./a.out
 ```
 
-### Output
+### Output of `tests.cpp`
 
 ```
 ! - normalize function worked correctly!
