@@ -10,10 +10,10 @@ typedef std::vector< std::vector<float> > t_grid;
 t_grid normalize(t_grid &grid);
 
 /** 
-	Blurs (and normalizes) a grid of probabilities by spreading 
-	probability from each cell over a 3x3 "window" of cells. This 
-	function assumes a cyclic world where probability "spills 
-	over" from the right edge to the left and bottom to top.
+    Blurs (and normalizes) a grid of probabilities by spreading 
+    probability from each cell over a 3x3 "window" of cells. This 
+    function assumes a cyclic world where probability "spills 
+    over" from the right edge to the left and bottom to top.
 */
 t_grid blur(t_grid &grid, float blurring);
 

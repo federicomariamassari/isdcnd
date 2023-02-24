@@ -1,10 +1,10 @@
 /**
-	localizer.cpp
+    localizer.cpp
 
-	Purpose: implements a 2-dimensional histogram filter
-	for a robot living on a colored cyclical grid by 
-	correctly implementing the "initialize_beliefs", 
-	"sense", and "move" functions.
+    Purpose: implements a 2-dimensional histogram filter
+    for a robot living on a colored cyclical grid by 
+    correctly implementing the "initialize_beliefs", 
+    "sense", and "move" functions.
 */
 
 #include "headers/localizer.h"
@@ -15,17 +15,17 @@
 using namespace std;
 
 /**
-	Initializes a grid of beliefs to a uniform distribution. 
+    Initializes a grid of beliefs to a uniform distribution. 
 
     @param grid - a two dimensional grid map (vector of vectors 
-    	   of chars) representing the robot's world. For example:
-    	   
-    	   g g g
-    	   g r g
-    	   g g g
-		   
-		   would be a 3x3 world where every cell is green except 
-		   for the center, which is red.
+           of chars) representing the robot's world. For example:
+           
+           g g g
+           g r g
+           g g g
+           
+           would be a 3x3 world where every cell is green except 
+           for the center, which is red.
 
     @return - a normalized two dimensional grid of floats. For 
            a 2x2 grid, for example, this would be:
@@ -35,13 +35,13 @@ using namespace std;
 */
 t_grid initialize_beliefs(t_char_grid &grid) {
 
-	int height = grid.size();
-	int width = grid[0].size();
-	int area = height * width;
+    int height = grid.size();
+    int width = grid[0].size();
+    int area = height * width;
 
-	t_grid beliefs (height, vector<float> (width, 1. / area));
-	
-	return beliefs;
+    t_grid beliefs (height, vector<float> (width, 1. / area));
+    
+    return beliefs;
 }
 
 /**
@@ -81,77 +81,77 @@ t_grid initialize_beliefs(t_char_grid &grid) {
 */
 t_grid move(int dy, int dx, t_grid &beliefs, float blurring)
 {
-	int height = beliefs.size();
-	int width = beliefs[0].size();
-	int i, j, row, col;
+    int height = beliefs.size();
+    int width = beliefs[0].size();
+    int i, j, row, col;
 
-  	t_grid new_grid (height, vector<float> (width, 0.));
+      t_grid new_grid (height, vector<float> (width, 0.));
 
-  	for (i=0; i < height; i++) {
-		for (j=0; j < width; j++) {
-			
-			row = ((i + dy) % height + height) % height;
-			col = ((j + dx) % width + width) % width;
+      for (i=0; i < height; i++) {
+        for (j=0; j < width; j++) {
+            
+            row = ((i + dy) % height + height) % height;
+            col = ((j + dx) % width + width) % width;
 
-			new_grid[row][col] = beliefs[i][j];
-		}
-	}
+            new_grid[row][col] = beliefs[i][j];
+        }
+    }
 
-	return blur(new_grid, blurring);
+    return blur(new_grid, blurring);
 }
 
 
 /**
-	Implements robot sensing by updating beliefs based on the 
+    Implements robot sensing by updating beliefs based on the 
     color of a sensor measurement 
 
-	@param color - the color the robot has sensed at its location
+    @param color - the color the robot has sensed at its location
 
-	@param grid - the current map of the world, stored as a grid
-		   (vector of vectors of chars) where each char represents a 
-		   color. For example:
+    @param grid - the current map of the world, stored as a grid
+           (vector of vectors of chars) where each char represents a 
+           color. For example:
 
-		   g g g
-    	   g r g
-    	   g g g
+           g g g
+           g r g
+           g g g
 
-   	@param beliefs - a two dimensional grid of floats representing
-   		   the robot's beliefs for each cell before sensing. For 
-   		   example, a robot which has almost certainly localized 
-   		   itself in a 2D world might have the following beliefs:
+       @param beliefs - a two dimensional grid of floats representing
+              the robot's beliefs for each cell before sensing. For 
+              example, a robot which has almost certainly localized 
+              itself in a 2D world might have the following beliefs:
 
-   		   0.01 0.98
-   		   0.00 0.01
+              0.01 0.98
+              0.00 0.01
 
     @param p_hit - the RELATIVE probability that any "sense" is 
-    	   correct. The ratio of p_hit / p_miss indicates how many
-    	   times MORE likely it is to have a correct "sense" than
-    	   an incorrect one.
+           correct. The ratio of p_hit / p_miss indicates how many
+           times MORE likely it is to have a correct "sense" than
+           an incorrect one.
 
-   	@param p_miss - the RELATIVE probability that any "sense" is 
-    	   incorrect. The ratio of p_hit / p_miss indicates how many
-    	   times MORE likely it is to have a correct "sense" than
-    	   an incorrect one.
+       @param p_miss - the RELATIVE probability that any "sense" is 
+           incorrect. The ratio of p_hit / p_miss indicates how many
+           times MORE likely it is to have a correct "sense" than
+           an incorrect one.
 
     @return - a normalized two dimensional grid of floats 
-    	   representing the updated beliefs for the robot. 
+           representing the updated beliefs for the robot. 
 */
 t_grid sense(char color, t_char_grid &grid, t_grid &beliefs, float p_hit, float p_miss) 
 {
-	int height = grid.size();
-	int width = grid[0].size();
-	int i, j;
-	bool hit;
+    int height = grid.size();
+    int width = grid[0].size();
+    int i, j;
+    bool hit;
 
-  	t_grid new_beliefs (height, vector<float> (width, 0.));
+      t_grid new_beliefs (height, vector<float> (width, 0.));
 
-	for (i=0; i < height; i++) {
-		for (j=0; j < width; j++) {
+    for (i=0; i < height; i++) {
+        for (j=0; j < width; j++) {
 
-			hit = (color == grid[i][j]);
-			new_beliefs[i][j] = beliefs[i][j] * (hit * p_hit + (1-hit) * p_miss);
-		}
-	}
+            hit = (color == grid[i][j]);
+            new_beliefs[i][j] = beliefs[i][j] * (hit * p_hit + (1-hit) * p_miss);
+        }
+    }
 
-	return normalize(new_beliefs);
+    return normalize(new_beliefs);
 }
