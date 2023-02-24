@@ -7,9 +7,9 @@
     "sense", and "move" functions.
 */
 
+#include <stdlib.h>
 #include "headers/localizer.h"
 #include "helpers.cpp"
-#include <stdlib.h>
 #include "debugging_helpers.cpp"
 
 using namespace std;
