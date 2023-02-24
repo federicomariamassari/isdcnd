@@ -6,7 +6,17 @@ My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 
 ![Certificate of Completion](certificate-of-completion.png)
 
+## Project 2: Translate Python to C++
+
+### Overview
+
+__[Link to code](/projects/p2)__
+
 ## Project 3 (Optional): Optimize Histogram Filter
+
+### Overview
+
+__[Link to code](/projects/p3)__
 
 ### How to Compile and Run the Project
 
