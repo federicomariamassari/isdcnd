@@ -10,6 +10,10 @@ My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 
 __[Link to code](/projects/p1)__
 
+## Project 1.B: Implement a Matrix Class in C++
+
+__[Link to code](/projects/p1b)__
+
 ## Project 2: Translate Python to C++
 
 ### Overview
