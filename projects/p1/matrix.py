@@ -155,11 +155,13 @@ class Matrix:
         if self.h != other.h or self.w != other.w:
             raise ValueError('Matrices can only be added if the dimensions are the same.')
 
-        matrix_sum = []
-        for j in range(self.w):
-            matrix_sum.append([self[i][j] + other[i][j] for i in range(self.h)])
+        matrix_sum = zeroes(self.w, self.h)
 
-        return Matrix(matrix_sum)
+        for i in range(self.h):
+            for j in range(self.w):
+                matrix_sum[j][i] = self.g[i][j] + other.g[i][j]
+
+        return matrix_sum
 
     def __neg__(self):
         """Defines the behavior of - operator (NOT subtraction)
@@ -173,23 +175,24 @@ class Matrix:
           -3.0  -4.0
         """
 
-        # Create a self.h * self.w matrix of zeros
-        negative = zeroes(self.w, self.h)
+        matrix_neg = zeroes(self.w, self.h)
 
-        # Traverse each element in the matrix
         for i in range(self.h):
             for j in range(self.w):
-                negative[j][i] = -self.g[i][j]
+                matrix_neg[j][i] = -self.g[i][j]
 
-        return negative
+        return matrix_neg
 
     def __sub__(self, other):
         """Defines the behavior of - operator (as subtraction)."""
-        matrix_diff = []
-        for j in range(self.w):
-            matrix_diff.append([self[i][j] - other[i][j] for i in range(self.h)])
 
-        return Matrix(matrix_diff)
+        matrix_diff = zeroes(self.w, self.h)
+
+        for i in range(self.h):
+            for j in range(self.w):
+                matrix_diff[j][i] = self.g[i][j] - other.g[i][j]
+
+        return matrix_diff
 
     def __mul__(self, other):
         """Defines the behavior of * operator (matrix multiplication)."""
@@ -219,11 +222,14 @@ class Matrix:
           0.0  2.0
         """
         if isinstance(other, numbers.Number):
-            matrix_rmul = []
-            for j in range(self.w):
-                matrix_rmul.append([self[i][j] * other for i in range(self.h)])
 
-            return Matrix(matrix_rmul)
+            matrix_rmul = zeroes(self.w, self.h)
+
+            for j in range(self.w):
+                for i in range(self.h):
+                    matrix_rmul[j][i] = self[i][j] * other
+
+            return matrix_rmul
 
         else:
             raise ValueError('Can only reverse multiply a matrix by a matrix or scalar.')
