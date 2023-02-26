@@ -1,3 +1,10 @@
+# File:         matrix.py
+# Author:       Federico Maria Massari
+# Date:         11/16/2022
+# Description:  This Matrix class implements common matrix manipulation operations which are a basic requirement
+#               to handle self-driving cars. For easier comparison with the C++ code in Project 1.B, the code is
+#               specifically non-Pythonic (e.g., list comprehensions avoided in favour of for loops).
+
 from math import pow
 import numbers
 
@@ -105,11 +112,16 @@ class Matrix:
 
     def T(self):
         """Returns a transposed copy of this Matrix."""
-        transpose = []
-        for j in range(self.w):
-            transpose.append([self.g[i][j] for i in range(self.h)])
 
-        return Matrix(transpose)
+        # Create a self.h * self.w matrix of zeros
+        grid = zeroes(self.w, self.h)
+
+        # Traverse each element in the matrix
+        for r in range(self.h):
+            for c in range(self.w):
+                grid[c][r] = self.g[r][c]
+
+        return Matrix(grid)
 
     def is_square(self):
         return self.h == self.w
