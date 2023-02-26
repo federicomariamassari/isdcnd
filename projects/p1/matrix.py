@@ -114,14 +114,14 @@ class Matrix:
         """Returns a transposed copy of this Matrix."""
 
         # Create a self.h * self.w matrix of zeros
-        grid = zeroes(self.w, self.h)
+        transpose = zeroes(self.w, self.h)
 
         # Traverse each element in the matrix
-        for r in range(self.h):
-            for c in range(self.w):
-                grid[c][r] = self.g[r][c]
+        for i in range(self.h):
+            for j in range(self.w):
+                transpose[j][i] = self.g[i][j]
 
-        return Matrix(grid)
+        return transpose
 
     def is_square(self):
         return self.h == self.w
@@ -172,11 +172,16 @@ class Matrix:
           -1.0  -2.0
           -3.0  -4.0
         """
-        matrix_neg = []
-        for j in range(self.w):
-            matrix_neg.append([-self[i][j] for i in range(self.h)])
 
-        return Matrix(matrix_neg)
+        # Create a self.h * self.w matrix of zeros
+        negative = zeroes(self.w, self.h)
+
+        # Traverse each element in the matrix
+        for i in range(self.h):
+            for j in range(self.w):
+                negative[j][i] = -self.g[i][j]
+
+        return negative
 
     def __sub__(self, other):
         """Defines the behavior of - operator (as subtraction)."""
