@@ -155,11 +155,11 @@ class Matrix:
         if self.h != other.h or self.w != other.w:
             raise ValueError('Matrices can only be added if their dimensions are the same.')
 
-        matrix_sum = zeroes(self.w, self.h)
+        matrix_sum = zeroes(self.h, self.w)
 
         for i in range(self.h):
             for j in range(self.w):
-                matrix_sum[j][i] = self.g[i][j] + other.g[i][j]
+                matrix_sum[i][j] = self.g[i][j] + other.g[i][j]
 
         return matrix_sum
 
@@ -175,22 +175,22 @@ class Matrix:
           -3.0  -4.0
         """
 
-        matrix_neg = zeroes(self.w, self.h)
+        matrix_neg = zeroes(self.h, self.w)
 
         for i in range(self.h):
             for j in range(self.w):
-                matrix_neg[j][i] = -self.g[i][j]
+                matrix_neg[i][j] = -self.g[i][j]
 
         return matrix_neg
 
     def __sub__(self, other):
         """Defines the behavior of - operator (as subtraction)."""
 
-        matrix_diff = zeroes(self.w, self.h)
+        matrix_diff = zeroes(self.h, self.w)
 
         for i in range(self.h):
             for j in range(self.w):
-                matrix_diff[j][i] = self.g[i][j] - other.g[i][j]
+                matrix_diff[i][j] = self.g[i][j] - other.g[i][j]
 
         return matrix_diff
 
@@ -224,11 +224,11 @@ class Matrix:
         """
         if isinstance(other, numbers.Number):
 
-            matrix_rmul = zeroes(self.w, self.h)
+            matrix_rmul = zeroes(self.h, self.w)
 
-            for j in range(self.w):
-                for i in range(self.h):
-                    matrix_rmul[j][i] = self[i][j] * other
+            for i in range(self.h):
+                for j in range(self.w):
+                    matrix_rmul[i][j] = self[i][j] * other
 
             return matrix_rmul
 
