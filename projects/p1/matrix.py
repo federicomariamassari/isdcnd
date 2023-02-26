@@ -3,7 +3,7 @@
 # Date:         11/16/2022
 # Description:  This Matrix class implements common matrix manipulation operations which are a basic requirement
 #               to handle self-driving cars. For easier comparison with the C++ code in Project 1.B, the code is
-#               specifically non-Pythonic (e.g., list comprehensions avoided in favour of for loops).
+#               at times non-Pythonic.
 
 from math import pow
 import numbers
