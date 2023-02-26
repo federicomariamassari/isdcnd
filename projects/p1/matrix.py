@@ -153,7 +153,7 @@ class Matrix:
     def __add__(self, other):
         """Defines the behavior of the + operator."""
         if self.h != other.h or self.w != other.w:
-            raise ValueError('Matrices can only be added if the dimensions are the same.')
+            raise ValueError('Matrices can only be added if their dimensions are the same.')
 
         matrix_sum = zeroes(self.w, self.h)
 
@@ -202,13 +202,14 @@ class Matrix:
         if self.w != other.h:
             raise ValueError('Number or columns in left matrix does not match number of rows in right matrix.')
 
-        matrix_mul = []
+        matrix_mul = zeroes(self.h, other.w)
         other_transpose = other.T()
 
         for i in range(self.h):
-            matrix_mul.append([dot_product(self[i], other_transpose[j]) for j in range(other.w)])
+            for j in range(other.w):
+                matrix_mul[i][j] = dot_product(self.g[i], other_transpose[j])
 
-        return Matrix(matrix_mul)
+        return matrix_mul
 
     def __rmul__(self, other):
         """Called when the object on the left of the * is not a matrix.
