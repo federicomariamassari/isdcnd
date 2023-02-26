@@ -16,7 +16,7 @@ def zeroes(height, width):
 
 
 def identity(n):
-    """Creates a n x n identity matrix."""
+    """Creates an (n * n) identity matrix."""
     I = zeroes(n, n)
     for i in range(n):
         I.g[i][i] = 1.0
@@ -107,8 +107,8 @@ class Matrix:
 
         else:
             # Cayley-Hamilton decomposition of a 3*3 matrix
-            return pow(det, -1) * (0.5 * (pow(self.trace(), 2) - (self*self).trace()) * identity(self.h)
-                                   - self.trace() * self + (self*self))
+            return pow(det, -1) * (0.5 * (pow(self.trace(), 2) - (self*self).trace()) * identity(self.h) -
+                                   self.trace() * self + (self*self))
 
     def T(self):
         """Returns a transposed copy of this Matrix."""
