@@ -8,6 +8,8 @@ class Matrix
         t_grid grid;
         std::vector<float>::size_type rows;
         std::vector<float>::size_type cols;
+        
+        float dot_product(std::vector<float> p, std::vector<float> q);
 
     public:
         Matrix();
