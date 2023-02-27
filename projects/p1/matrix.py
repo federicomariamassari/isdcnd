@@ -1,9 +1,9 @@
 # File:         matrix.py
 # Author:       Federico Maria Massari
 # Date:         11/16/2022
-# Description:  This Matrix class implements common matrix manipulation operations which are a basic requirement
-#               to handle self-driving cars. For easier comparison with the C++ code in Project 1.B, the code is
-#               at times non-Pythonic.
+# Description:  This Matrix class implements common matrix manipulation operations as a basic requirement to
+#               handle self-driving cars. For easier comparison with the C++ counterpart in Project 1.B, the
+#               code is at times non-Pythonic.
 
 from math import pow
 import numbers
@@ -119,7 +119,7 @@ class Matrix:
         # Traverse each element in the matrix
         for i in range(self.h):
             for j in range(self.w):
-                transpose[j][i] = self.g[i][j]
+                transpose.g[j][i] = self.g[i][j]
 
         return transpose
 
@@ -159,7 +159,7 @@ class Matrix:
 
         for i in range(self.h):
             for j in range(self.w):
-                matrix_sum[i][j] = self.g[i][j] + other.g[i][j]
+                matrix_sum.g[i][j] = self.g[i][j] + other.g[i][j]
 
         return matrix_sum
 
@@ -179,7 +179,7 @@ class Matrix:
 
         for i in range(self.h):
             for j in range(self.w):
-                matrix_neg[i][j] = -self.g[i][j]
+                matrix_neg.g[i][j] = -self.g[i][j]
 
         return matrix_neg
 
@@ -190,7 +190,7 @@ class Matrix:
 
         for i in range(self.h):
             for j in range(self.w):
-                matrix_diff[i][j] = self.g[i][j] - other.g[i][j]
+                matrix_diff.g[i][j] = self.g[i][j] - other.g[i][j]
 
         return matrix_diff
 
@@ -207,7 +207,7 @@ class Matrix:
 
         for i in range(self.h):
             for j in range(other.w):
-                matrix_mul[i][j] = dot_product(self.g[i], other_transpose[j])
+                matrix_mul.g[i][j] = dot_product(self.g[i], other_transpose.g[j])
 
         return matrix_mul
 
@@ -228,7 +228,7 @@ class Matrix:
 
             for i in range(self.h):
                 for j in range(self.w):
-                    matrix_rmul[i][j] = self[i][j] * other
+                    matrix_rmul.g[i][j] = self.g[i][j] * other
 
             return matrix_rmul
 
