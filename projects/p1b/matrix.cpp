@@ -72,7 +72,6 @@ Matrix Matrix::matrix_transpose()
             transpose.grid[j][i] = grid[i][j];
         }
     }
-
     return transpose;
 }
 
@@ -91,7 +90,6 @@ Matrix Matrix::matrix_addition(Matrix other)
             matrix_sum.grid[i][j] = grid[i][j] + other_grid[i][j];
         }
     }
-
     return matrix_sum;
 };
 
@@ -111,7 +109,6 @@ Matrix Matrix::matrix_subtraction(Matrix other)
             matrix_sub.grid[i][j] = grid[i][j] - other_grid[i][j];
         }
     }
-
     return matrix_sub;
 }
 
@@ -126,7 +123,6 @@ Matrix Matrix::matrix_negation()
             matrix_neg.grid[i][j] = -grid[i][j];
         }
     }
-
     return matrix_neg;
 }
 
@@ -145,7 +141,6 @@ Matrix Matrix::matrix_multiplication(Matrix other)
             matrix_mul.grid[i][j] = dot_product(grid[i], other_transpose.grid[j]);
         }
     }
-
     return matrix_mul;
 }
 
