@@ -20,6 +20,7 @@ class Matrix
         std::vector<float>::size_type get_cols();
 
         Matrix zeros(int n_rows, int n_cols);
+        Matrix identity(int n);
         Matrix matrix_transpose();
         Matrix matrix_addition(Matrix other);
         Matrix matrix_subtraction(Matrix other);

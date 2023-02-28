@@ -61,6 +61,16 @@ Matrix Matrix::zeros(int n_rows, int n_cols)
     return Matrix(grid);
 };
 
+Matrix Matrix::identity(int n)
+{
+    Matrix I = zeros(n, n);
+
+    for (int i=0; i < n; i++) {
+        I.grid[i][i] = 1.;
+    }
+    return I;
+};
+
 
 Matrix Matrix::matrix_transpose()
 {
