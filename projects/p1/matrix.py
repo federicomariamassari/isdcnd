@@ -9,17 +9,17 @@ from math import pow
 import numbers
 
 
-def zeroes(height, width):
+def zeros(height, width):
     """Creates a matrix of zeroes."""
-    g = [[0.0 for _ in range(width)] for __ in range(height)]
+    g = [[0. for _ in range(width)] for __ in range(height)]
     return Matrix(g)
 
 
 def identity(n):
     """Creates an (n * n) identity matrix."""
-    I = zeroes(n, n)
+    I = zeros(n, n)
     for i in range(n):
-        I.g[i][i] = 1.0
+        I.g[i][i] = 1.
     return I
 
 
@@ -114,7 +114,7 @@ class Matrix:
         """Returns a transposed copy of this Matrix."""
 
         # Create a self.h * self.w matrix of zeros
-        transpose = zeroes(self.w, self.h)
+        transpose = zeros(self.w, self.h)
 
         # Traverse each element in the matrix
         for i in range(self.h):
@@ -155,7 +155,7 @@ class Matrix:
         if self.h != other.h or self.w != other.w:
             raise ValueError('Matrices can only be added if their dimensions are the same.')
 
-        matrix_sum = zeroes(self.h, self.w)
+        matrix_sum = zeros(self.h, self.w)
 
         for i in range(self.h):
             for j in range(self.w):
@@ -175,7 +175,7 @@ class Matrix:
           -3.0  -4.0
         """
 
-        matrix_neg = zeroes(self.h, self.w)
+        matrix_neg = zeros(self.h, self.w)
 
         for i in range(self.h):
             for j in range(self.w):
@@ -186,7 +186,7 @@ class Matrix:
     def __sub__(self, other):
         """Defines the behavior of - operator (as subtraction)."""
 
-        matrix_diff = zeroes(self.h, self.w)
+        matrix_diff = zeros(self.h, self.w)
 
         for i in range(self.h):
             for j in range(self.w):
@@ -202,7 +202,7 @@ class Matrix:
         if self.w != other.h:
             raise ValueError('Number or columns in left matrix does not match number of rows in right matrix.')
 
-        matrix_mul = zeroes(self.h, other.w)
+        matrix_mul = zeros(self.h, other.w)
         other_transpose = other.T()
 
         for i in range(self.h):
@@ -224,7 +224,7 @@ class Matrix:
         """
         if isinstance(other, numbers.Number):
 
-            matrix_rmul = zeroes(self.h, self.w)
+            matrix_rmul = zeros(self.h, self.w)
 
             for i in range(self.h):
                 for j in range(self.w):
