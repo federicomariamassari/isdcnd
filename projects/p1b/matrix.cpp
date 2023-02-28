@@ -57,6 +57,8 @@ Matrix Matrix::zeros(int n_rows, int n_cols)
     t_grid grid(n_rows, vector<float> (n_cols, 0.));
     rows = grid.size();
     cols = grid[0].size();
+
+    return Matrix(grid);
 };
 
 
