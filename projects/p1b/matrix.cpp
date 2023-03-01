@@ -53,6 +53,12 @@ float Matrix::dot_product(vector<float> p, vector<float> q)
 }
 
 
+bool Matrix::is_square()
+{
+    return rows == cols;
+}
+
+
 Matrix Matrix::zeros(int n_rows, int n_cols)
 {
     t_grid grid(n_rows, vector<float> (n_cols, 0.));
@@ -71,6 +77,22 @@ Matrix Matrix::identity(int n)
         I.grid[i][i] = 1.;
     }
     return I;
+}
+
+
+float Matrix::trace()
+{
+    if (!is_square()) {
+        throw length_error("Cannot calculate the trace of a non-square matrix.");
+    }
+    
+    float s = 0.;
+    
+    for (int i=0; i < rows; i++) {
+        s += grid[i][i];
+    }
+
+    return s;
 }
 
 
