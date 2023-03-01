@@ -10,24 +10,25 @@ Matrix::Matrix(t_grid G)
     grid = G;
     rows = grid.size();
     cols = grid[0].size();
-};
+}
 
 
 void Matrix::set_grid(t_grid G)
 {
     grid = G;
-};
+}
+
 
 t_grid Matrix::get_grid()
 {
     return grid;
-};
+}
 
 
 vector<float>::size_type Matrix::get_rows()
 {
     return rows;
-};
+}
 
 
 vector<float>::size_type Matrix::get_cols()
@@ -59,7 +60,8 @@ Matrix Matrix::zeros(int n_rows, int n_cols)
     cols = grid[0].size();
 
     return Matrix(grid);
-};
+}
+
 
 Matrix Matrix::identity(int n)
 {
@@ -69,7 +71,7 @@ Matrix Matrix::identity(int n)
         I.grid[i][i] = 1.;
     }
     return I;
-};
+}
 
 
 Matrix Matrix::matrix_transpose()
@@ -101,7 +103,7 @@ Matrix Matrix::matrix_addition(Matrix other)
         }
     }
     return matrix_sum;
-};
+}
 
 
 Matrix Matrix::matrix_subtraction(Matrix other)
