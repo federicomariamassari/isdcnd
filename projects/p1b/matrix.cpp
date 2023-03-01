@@ -155,6 +155,36 @@ Matrix Matrix::matrix_multiplication(Matrix other)
 }
 
 
+Matrix Matrix::matrix_right_multiplication(float scalar)
+{
+    Matrix matrix_rmul = zeros(rows, cols);
+
+    for (int i=0; i < rows; i++) {
+        for (int j=0; j < cols; j++) {
+            matrix_rmul.grid[i][j] = scalar * grid[i][j];
+        }
+    }
+    return matrix_rmul;
+}
+
+
+Matrix Matrix::matrix_right_multiplication(Matrix other)
+{
+    if (other.get_cols() != rows) {
+      throw length_error("Number of columns of A must match number of rows of B.");
+    }
+
+    Matrix matrix_rmul = zeros(rows, other.get_cols());
+
+    for (int i=0; i < rows; i++) {
+        for (int j=0; j < other.get_cols(); j++) {
+            matrix_rmul.grid[i][j] = dot_product(grid[i], other.grid[j]);
+        }
+    }
+    return matrix_rmul;
+}
+
+
 void Matrix::matrix_print()
 {
     for (int i=0; i < rows; i++) {
