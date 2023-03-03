@@ -1,5 +1,3 @@
-#include <iostream>
-#include <numeric>
 #include "matrix.h"
 
 using namespace std;
@@ -85,7 +83,7 @@ float Matrix::trace()
     if (!is_square()) {
         throw length_error("Cannot calculate the trace of a non-square matrix.");
     }
-    
+
     float s = 0.;
     
     for (int i=0; i < rows; i++) {
@@ -93,6 +91,24 @@ float Matrix::trace()
     }
 
     return s;
+}
+
+
+float Matrix::determinant()
+{
+    if (!is_square()) {
+        throw length_error("Cannot calculate determinant of a non-square matrix.");
+    }
+    
+    if (rows > 3) {
+        throw logic_error("Calculating determinant not implemented for matrices larger than 3x3.");
+    }
+
+    if (rows == 1) {
+        return grid[0][0];
+    }
+
+
 }
 
 

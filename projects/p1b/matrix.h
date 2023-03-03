@@ -1,4 +1,7 @@
+#include <iostream>
 #include <vector>
+#include <numeric>
+#include <exception>
 
 typedef std::vector< std::vector<float> > t_grid;
 
@@ -11,6 +14,7 @@ class Matrix
 
         float dot_product(std::vector<float> p, std::vector<float> q);
         bool is_square();
+        Matrix get_submatrix(int col);
 
     public:
         Matrix(t_grid G);
@@ -23,6 +27,8 @@ class Matrix
         Matrix zeros(int n_rows, int n_cols);
         Matrix identity(int n);
         float trace();
+        float determinant();
+        Matrix matrix_inverse();
         Matrix matrix_transpose();
         Matrix matrix_addition(Matrix other);
         Matrix matrix_subtraction(Matrix other);
