@@ -56,6 +56,16 @@ bool Matrix::is_square()
     return rows == cols;
 }
 
+float Matrix::get_minor(t_grid G)
+{
+    float a = G[0][0];
+    float b = G[0][1];
+    float c = G[1][0];
+    float d = G[1][1];
+
+    return (a * d) - (b * c);
+}
+
 
 Matrix Matrix::zeros(int n_rows, int n_cols)
 {
@@ -106,9 +116,13 @@ float Matrix::determinant()
 
     if (rows == 1) {
         return grid[0][0];
+
+    } else if (rows == 2) {
+        return get_minor(grid);
+
+    } else {
+        // TODO: Add case for rows == 3
     }
-
-
 }
 
 
