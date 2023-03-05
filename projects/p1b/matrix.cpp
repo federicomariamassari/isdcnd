@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 Matrix::Matrix(t_grid G)
 {
     grid = G;
@@ -10,30 +9,25 @@ Matrix::Matrix(t_grid G)
     cols = grid[0].size();
 }
 
-
 void Matrix::set_grid(t_grid G)
 {
     grid = G;
 }
-
 
 t_grid Matrix::get_grid()
 {
     return grid;
 }
 
-
 vector<float>::size_type Matrix::get_rows()
 {
     return rows;
 }
 
-
 vector<float>::size_type Matrix::get_cols()
 {
     return cols;
 }
-
 
 float Matrix::dot_product(vector<float> p, vector<float> q)
 {
@@ -50,7 +44,6 @@ float Matrix::dot_product(vector<float> p, vector<float> q)
     return s;
 }
 
-
 bool Matrix::is_square()
 {
     return rows == cols;
@@ -66,7 +59,6 @@ float Matrix::get_minor(t_grid G)
     return (a * d) - (b * c);
 }
 
-
 Matrix Matrix::zeros(int n_rows, int n_cols)
 {
     t_grid grid(n_rows, vector<float> (n_cols, 0.));
@@ -75,7 +67,6 @@ Matrix Matrix::zeros(int n_rows, int n_cols)
 
     return Matrix(grid);
 }
-
 
 Matrix Matrix::identity(int n)
 {
@@ -86,7 +77,6 @@ Matrix Matrix::identity(int n)
     }
     return I;
 }
-
 
 float Matrix::trace()
 {
@@ -102,7 +92,6 @@ float Matrix::trace()
 
     return s;
 }
-
 
 float Matrix::determinant()
 {
@@ -131,7 +120,6 @@ float Matrix::determinant()
     }
 }
 
-
 Matrix Matrix::matrix_transpose()
 {
     Matrix transpose = zeros(rows, cols);
@@ -144,7 +132,6 @@ Matrix Matrix::matrix_transpose()
     }
     return transpose;
 }
-
 
 Matrix Matrix::matrix_addition(Matrix other)
 {
@@ -162,7 +149,6 @@ Matrix Matrix::matrix_addition(Matrix other)
     }
     return matrix_sum;
 }
-
 
 Matrix Matrix::matrix_subtraction(Matrix other)
 {
@@ -182,7 +168,6 @@ Matrix Matrix::matrix_subtraction(Matrix other)
     return matrix_sub;
 }
 
-
 Matrix Matrix::matrix_negation()
 {
     Matrix matrix_neg = zeros(rows, cols);
@@ -195,7 +180,6 @@ Matrix Matrix::matrix_negation()
     }
     return matrix_neg;
 }
-
 
 Matrix Matrix::matrix_multiplication(Matrix other)
 {
@@ -214,7 +198,6 @@ Matrix Matrix::matrix_multiplication(Matrix other)
     return matrix_mul;
 }
 
-
 Matrix Matrix::matrix_right_multiplication(float scalar)
 {
     Matrix matrix_rmul = zeros(rows, cols);
@@ -226,7 +209,6 @@ Matrix Matrix::matrix_right_multiplication(float scalar)
     }
     return matrix_rmul;
 }
-
 
 Matrix Matrix::matrix_right_multiplication(Matrix other)
 {
@@ -243,7 +225,6 @@ Matrix Matrix::matrix_right_multiplication(Matrix other)
     }
     return matrix_rmul;
 }
-
 
 void Matrix::matrix_print()
 {
