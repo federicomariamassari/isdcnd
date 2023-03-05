@@ -121,7 +121,13 @@ float Matrix::determinant()
         return get_minor(grid);
 
     } else {
-        // TODO: Add case for rows == 3
+        float det = 0;
+
+        // In matrix algebra rows and cols start from index 1, which is convenient to get sign (-1)^(i+j) 
+        for (int j=1; j < cols+1; j++) {
+            // TODO
+        }
+
     }
 }
 
