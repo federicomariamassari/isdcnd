@@ -2,8 +2,8 @@
 # Author:       Federico Maria Massari
 # Date:         11/16/2022
 # Description:  This Matrix class implements common matrix manipulation operations as a basic requirement to
-#               handle self-driving cars. For easier comparison with the C++ counterpart in Project 1.B, the
-#               code is at times non-Pythonic.
+#               handle self-driving cars. Basic optimization techniques, such as pre-allocation of memory resources,
+#               were applied for easier comparison with the C++ code in Project 1.B.
 
 from math import pow
 import numbers
