@@ -255,3 +255,21 @@ void Matrix::matrix_print()
         cout << endl;
     }
 }
+
+bool Matrix::is_identical(Matrix other)
+{
+    // Check if compared matrices have same size
+    if (rows != other.get_rows() || cols != other.get_cols()) {
+        return false;
+    }
+
+    // Check if matrices are identical for each element i,j
+    for (int i=0; i < rows; i++) {
+        for (int j=0; j < cols; j++) {
+            if (grid[i][j] != other.grid[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
