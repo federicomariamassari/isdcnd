@@ -36,7 +36,6 @@ class Matrix
         Matrix matrix_negation();
         Matrix matrix_multiplication(Matrix other);
         Matrix matrix_right_multiplication(float scalar);
-        Matrix matrix_right_multiplication(Matrix other);
 
         void matrix_print();
         bool is_identical(Matrix other);

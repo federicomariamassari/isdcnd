@@ -36,7 +36,7 @@ float Matrix::dot_product(vector<float> p, vector<float> q)
     vector<float> temp (length);
 
     for (int k=0; k < length; k++) {
-      temp[k] = p[k] * q[k];
+        temp[k] = p[k] * q[k];
     }
 
     s = accumulate(temp.begin(), temp.end(), 0.);
@@ -225,22 +225,6 @@ Matrix Matrix::matrix_right_multiplication(float scalar)
     for (int i=0; i < rows; i++) {
         for (int j=0; j < cols; j++) {
             matrix_rmul.grid[i][j] = scalar * grid[i][j];
-        }
-    }
-    return matrix_rmul;
-}
-
-Matrix Matrix::matrix_right_multiplication(Matrix other)
-{
-    if (other.get_cols() != rows) {
-      throw length_error("Number of columns of A must match number of rows of B.");
-    }
-
-    Matrix matrix_rmul = zeros(rows, other.get_cols());
-
-    for (int i=0; i < rows; i++) {
-        for (int j=0; j < other.get_cols(); j++) {
-            matrix_rmul.grid[i][j] = dot_product(grid[i], other.grid[j]);
         }
     }
     return matrix_rmul;
