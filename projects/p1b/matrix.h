@@ -15,7 +15,7 @@ class Matrix
         float dot_product(std::vector<float> p, std::vector<float> q);
         bool is_square();
         float get_minor(t_grid G);
-        Matrix get_submatrix(int col);
+        t_grid get_submatrix(int col);
 
     public:
         Matrix(t_grid G);

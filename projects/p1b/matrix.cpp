@@ -59,6 +59,25 @@ float Matrix::get_minor(t_grid G)
     return (a * d) - (b * c);
 }
 
+t_grid Matrix::get_submatrix(int col)
+{
+    t_grid submatrix;
+    vector<float> row;
+
+    for (int i=1; i < rows; i++)
+    {
+        row.clear();
+        for (int j=0; j < cols; j++) {
+            if (j != col) {
+                row.push_back(grid[i][j]);
+            }
+        }
+        submatrix.push_back(row);
+    }
+
+    return submatrix;
+}
+
 Matrix Matrix::zeros(int n_rows, int n_cols)
 {
     t_grid grid(n_rows, vector<float> (n_cols, 0.));
@@ -114,9 +133,10 @@ float Matrix::determinant()
 
         // In matrix algebra rows and cols start from index 1, which is convenient to get sign (-1)^(i+j) 
         for (int j=1; j < cols+1; j++) {
-            // TODO
+            t_grid submatrix = get_submatrix(j-1);
+            det += pow(-1, 1+j) * grid[0][j-1] * get_minor(submatrix);
         }
-
+        return det;
     }
 }
 
