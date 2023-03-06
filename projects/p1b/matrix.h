@@ -4,6 +4,8 @@
 #include <exception>
 
 typedef std::vector< std::vector<float> > t_grid;
+t_grid zeros(int n_rows, int n_cols);
+t_grid identity(int n);
 
 class Matrix
 {
@@ -25,8 +27,6 @@ class Matrix
         std::vector<float>::size_type get_rows();
         std::vector<float>::size_type get_cols();
 
-        Matrix zeros(int n_rows, int n_cols);
-        Matrix identity(int n);
         float trace();
         float determinant();
         Matrix matrix_inverse();

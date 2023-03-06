@@ -2,6 +2,23 @@
 
 using namespace std;
 
+t_grid zeros(int n_rows, int n_cols)
+{
+    t_grid grid (n_rows, vector<float> (n_cols, 0.));
+    return grid;
+}
+
+t_grid identity(int n)
+{
+    t_grid I = zeros(n, n);
+
+    for (int i=0; i < n; i++) {
+        I[i][i] = 1.;
+    }
+
+    return I;
+}
+
 Matrix::Matrix(t_grid G)
 {
     grid = G;
@@ -78,25 +95,6 @@ t_grid Matrix::get_submatrix(int col)
     return submatrix;
 }
 
-Matrix Matrix::zeros(int n_rows, int n_cols)
-{
-    t_grid grid(n_rows, vector<float> (n_cols, 0.));
-    rows = grid.size();
-    cols = grid[0].size();
-
-    return Matrix(grid);
-}
-
-Matrix Matrix::identity(int n)
-{
-    Matrix I = zeros(n, n);
-
-    for (int i=0; i < n; i++) {
-        I.grid[i][i] = 1.;
-    }
-    return I;
-}
-
 float Matrix::trace()
 {
     if (!is_square()) {
@@ -142,15 +140,15 @@ float Matrix::determinant()
 
 Matrix Matrix::matrix_transpose()
 {
-    Matrix transpose = zeros(rows, cols);
+    t_grid transpose = zeros(rows, cols);
 
     for (int i=0; i < rows; i++) {
         for (int j=0; j < rows; j++) {
             
-            transpose.grid[j][i] = grid[i][j];
+            transpose[j][i] = grid[i][j];
         }
     }
-    return transpose;
+    return Matrix(transpose);
 }
 
 Matrix Matrix::matrix_addition(Matrix other)
@@ -160,14 +158,14 @@ Matrix Matrix::matrix_addition(Matrix other)
     }
 
     t_grid other_grid = other.get_grid();
-    Matrix matrix_sum = zeros(rows, cols);
+    t_grid matrix_sum = zeros(rows, cols);
 
     for (int i=0; i < rows; i++) {
         for (int j=0; j < cols; j++) {
-            matrix_sum.grid[i][j] = grid[i][j] + other_grid[i][j];
+            matrix_sum[i][j] = grid[i][j] + other_grid[i][j];
         }
     }
-    return matrix_sum;
+    return Matrix(matrix_sum);
 }
 
 Matrix Matrix::matrix_subtraction(Matrix other)
@@ -177,28 +175,28 @@ Matrix Matrix::matrix_subtraction(Matrix other)
     }
 
     t_grid other_grid = other.get_grid();
-    Matrix matrix_sub = zeros(rows, cols);
+    t_grid matrix_sub = zeros(rows, cols);
 
     for (int i=0; i < rows; i++) {
         for (int j=0; j < cols; j++) {
 
-            matrix_sub.grid[i][j] = grid[i][j] - other_grid[i][j];
+            matrix_sub[i][j] = grid[i][j] - other_grid[i][j];
         }
     }
-    return matrix_sub;
+    return Matrix(matrix_sub);
 }
 
 Matrix Matrix::matrix_negation()
 {
-    Matrix matrix_neg = zeros(rows, cols);
+    t_grid matrix_neg = zeros(rows, cols);
 
     for (int i=0; i < rows; i++) {
         for (int j=0; j < cols; j++) {
 
-            matrix_neg.grid[i][j] = -grid[i][j];
+            matrix_neg[i][j] = -grid[i][j];
         }
     }
-    return matrix_neg;
+    return Matrix(matrix_neg);
 }
 
 Matrix Matrix::matrix_multiplication(Matrix other)
@@ -208,26 +206,26 @@ Matrix Matrix::matrix_multiplication(Matrix other)
     }
 
     Matrix other_transpose = other.matrix_transpose();
-    Matrix matrix_mul = zeros(rows, other_transpose.get_cols());
+    t_grid matrix_mul = zeros(rows, other_transpose.get_cols());
     
     for (int i=0; i < rows; i++) {
         for (int j=0; j < other.get_cols(); j++) {
-            matrix_mul.grid[i][j] = dot_product(grid[i], other_transpose.grid[j]);
+            matrix_mul[i][j] = dot_product(grid[i], other_transpose.grid[j]);
         }
     }
-    return matrix_mul;
+    return Matrix(matrix_mul);
 }
 
 Matrix Matrix::matrix_right_multiplication(float scalar)
 {
-    Matrix matrix_rmul = zeros(rows, cols);
+    t_grid matrix_rmul = zeros(rows, cols);
 
     for (int i=0; i < rows; i++) {
         for (int j=0; j < cols; j++) {
-            matrix_rmul.grid[i][j] = scalar * grid[i][j];
+            matrix_rmul[i][j] = scalar * grid[i][j];
         }
     }
-    return matrix_rmul;
+    return Matrix(matrix_rmul);
 }
 
 void Matrix::matrix_print()
