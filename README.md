@@ -26,6 +26,12 @@ g++ -std=c++11 tests.cpp matrix.cpp
 ./a.out
 ```
 
+### Output of `tests.cpp`
+
+```
+All tests passed.
+```
+
 ## Project 2: Translate Python to C++
 
 ### Overview
