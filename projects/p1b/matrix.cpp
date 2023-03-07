@@ -5,7 +5,7 @@ using namespace std;
 /* Create a matrix of zeros with dimensions n_rows x n_cols.
  *
  * Example:
- *  >> zeros(2, 3)
+ *  >> zeros(2, 3);
  * 
  * Returns:
  *  >> {{0, 0, 0}, {0, 0, 0}}
@@ -19,7 +19,7 @@ t_grid zeros(int n_rows, int n_cols)
 /* Create an n-dimensional matrix of zeros with diagonal of ones.
  *
  * Example:
- *  >> identity(3)
+ *  >> identity(3);
  * 
  * Returns:
  *  >> {{1, 0, 0}, {0, 1, 0} {0, 0, 1}}
@@ -65,7 +65,7 @@ vector<float>::size_type Matrix::get_cols()
 /* Returns dot product between vectors p (row of A) and q (column of B).
  *
  * Example: 
- *  >> dot_product({1, 2, 3}, {4, 5, 6})
+ *  >> dot_product({1, 2, 3}, {4, 5, 6});
  * 
  * Returns: 
  *  >> (1 * 4) + (2 * 5) + (3 * 6) = 32
@@ -90,10 +90,10 @@ bool Matrix::is_square()
     return rows == cols;
 }
 
-/* Returns the minor of a submatrix.
+/* Returns the minor (i.e., determinant) of a 2x2 submatrix.
  *
  * Example:
- *  >> get_minor({{1, 2}, {3, 4}})
+ *  >> get_minor({{1, 2}, {3, 4}});
  * 
  * Returns:
  *  >> (1 * 4) - (2 * 3) = -2
@@ -111,8 +111,8 @@ float Matrix::get_minor(t_grid G)
 /* Returns submatrix formed by deleting first row, j-th column of input matrix.
  *
  * Example:
- *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
- *  >> A.get_submatrix(3)
+ *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> A.get_submatrix(3);
  * 
  * Returns:
  *  >> {{4, 5}, {7, 8}}
@@ -139,8 +139,8 @@ t_grid Matrix::get_submatrix(int col)
 /* Returns the sum of the diagonal elements of a square matrix.
  *
  * Example:
- *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
- *  >> A.trace()
+ *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> A.trace();
  * 
  * Returns:
  *  >> 1 + 5 + 9 = 15
@@ -160,6 +160,15 @@ float Matrix::trace()
     return s;
 }
 
+/* Calculates determinant of square matrices up to 3x3.
+ *
+ * Example:
+ *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> A.determinant();
+ * 
+ * Returns:
+ *  >> (-1)^1 * (5*9 - 6*8) + (-1)^2 * (4*9 - 6*7) + (-1)^3 * (4*8 - 5*7) = 0
+ */
 float Matrix::determinant()
 {
     if (!is_square()) {
@@ -188,13 +197,17 @@ float Matrix::determinant()
     }
 }
 
+/* Calculates the inverse of matrices up to 3x3 using Cayley-Hamilton formulae.
+ * 
+ * Example:
+ *  >> Matrix A = {{1, -2, -3}, {-4, -5, -6}, {7, 8, 9}};
+ *  >> A.inverse();
+ * 
+ * Returns (tol: 1e-5):
+ *  >> {{0.5,  -1,  -0.5}, {-1,  5,  3}, {0.5, -3.66667, -2.16667}}
+ */
 Matrix Matrix::inverse()
 {
-    /**
-     * Calculates the inverse of matrices up to 3x3.
-     * References: https://en.wikipedia.org/wiki/Invertible_matrix (Cayley-Hamilton formulae).
-     */
-
     if (!is_square()) {
         throw length_error("Non-square Matrix does not have an inverse.");
     }
@@ -223,6 +236,15 @@ Matrix Matrix::inverse()
     }
 }
 
+/* Switch input matrix rows and columns.
+ *
+ * Example:
+ *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> A.transpose();
+ * 
+ * Returns:
+ *  >> {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}}
+ */
 Matrix Matrix::transpose()
 {
     t_grid transpose = zeros(cols, rows);
