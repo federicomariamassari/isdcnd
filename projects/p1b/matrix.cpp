@@ -5,10 +5,10 @@ using namespace std;
 /* Create a matrix of zeros with dimensions n_rows x n_cols.
  *
  * Example:
- *  >> zeros(2)
+ *  >> zeros(2, 3)
  * 
  * Returns:
- *  >> {{0, 0}, {0, 0}}
+ *  >> {{0, 0, 0}, {0, 0, 0}}
  */
 t_grid zeros(int n_rows, int n_cols)
 {
