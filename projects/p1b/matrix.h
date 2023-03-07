@@ -34,7 +34,7 @@ class Matrix
         Matrix operator-(Matrix other);     // Matrix subtraction (A - B)
         Matrix operator-();                 // Matrix negative (-A)
         Matrix operator*(Matrix other);     // Matrix multiplication (A * B)
-        Matrix operator*(float scalar);     // Matrix right multiplication (x * A)
+        Matrix operator*(float scalar);     // Matrix right-multiplication (x * A)
 
         void matrix_print();
         bool operator==(Matrix other);      // Are matrices identical (tol: 1e-5)?
