@@ -12,7 +12,19 @@ __[Link to code](/projects/p1)__
 
 ## Project 1.B: Implement a Matrix Class in C++
 
+### Overview
+
 __[Link to code](/projects/p1b)__
+
+### How to Compile and Run the Project
+
+We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p1b`, with `$whoami` the username of the current user (verify on console). Compile both `tests.cpp` and `matrix.cpp` as follows:
+
+```bash
+cd /home/$whoami/workspace/udacity-isdcnd/projects/p1b
+g++ -std=c++11 tests.cpp matrix.cpp
+./a.out
+```
 
 ## Project 2: Translate Python to C++
 
@@ -22,7 +34,7 @@ __[Link to code](/projects/p2)__
 
 ### How to Compile and Run the Project
 
-We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p2`, with `$whoami` the username of the current user (verify on console). Compile and run as follows:
+Compile and run the project as follows:
 
 ```bash
 cd /home/$whoami/workspace/udacity-isdcnd/projects/p2
@@ -52,7 +64,7 @@ __[Link to code](/projects/p3)__
 
 ### How to Compile and Run the Project
 
-We suppose a folder structure similar to that in which Project 2 resides. Move to folder `/home/$whoami/workspace/udacity-isdcnd/projects/p3/optimized`. Compile and run as follows:
+We suppose a folder structure similar to that in which Projects 1.B and 2 reside. Move to folder `/home/$whoami/workspace/udacity-isdcnd/projects/p3/optimized`. Compile and run as follows:
 
 ```bash
 cd /home/$whoami/workspace/udacity-isdcnd/projects/p3/optimized
