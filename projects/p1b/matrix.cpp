@@ -2,12 +2,28 @@
 
 using namespace std;
 
+/* Create a matrix of zeros with dimensions n_rows x n_cols.
+ *
+ * Example:
+ *  >> zeros(2)
+ * 
+ * Returns:
+ *  >> {{0, 0}, {0, 0}}
+ */
 t_grid zeros(int n_rows, int n_cols)
 {
     t_grid grid (n_rows, vector<float> (n_cols, 0.));
     return grid;
 }
 
+/* Create an n-dimensional matrix of zeros with diagonal of ones.
+ *
+ * Example:
+ *  >> identity(3)
+ * 
+ * Returns:
+ *  >> {{1, 0, 0}, {0, 1, 0} {0, 0, 1}}
+ */
 t_grid identity(int n)
 {
     t_grid I = zeros(n, n);
@@ -46,6 +62,14 @@ vector<float>::size_type Matrix::get_cols()
     return cols;
 }
 
+/* Returns dot product between vectors p (row of A) and q (column of B).
+ *
+ * Example: 
+ *  >> dot_product({1, 2, 3}, {4, 5, 6})
+ * 
+ * Returns: 
+ *  >> (1 * 4) + (2 * 5) + (3 * 6) = 32
+ */
 float Matrix::dot_product(vector<float> p, vector<float> q)
 {
     float s = 0.;
@@ -66,6 +90,14 @@ bool Matrix::is_square()
     return rows == cols;
 }
 
+/* Returns the minor of a submatrix.
+ *
+ * Example:
+ *  >> get_minor({{1, 2}, {3, 4}})
+ * 
+ * Returns:
+ *  >> (1 * 4) - (2 * 3) = -2
+ */
 float Matrix::get_minor(t_grid G)
 {
     float a = G[0][0];
@@ -76,6 +108,15 @@ float Matrix::get_minor(t_grid G)
     return (a * d) - (b * c);
 }
 
+/* Returns submatrix formed by deleting first row, j-th column of input matrix.
+ *
+ * Example:
+ *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+ *  >> A.get_submatrix(3)
+ * 
+ * Returns:
+ *  >> {{4, 5}, {7, 8}}
+ */
 t_grid Matrix::get_submatrix(int col)
 {
     t_grid submatrix;
@@ -95,6 +136,15 @@ t_grid Matrix::get_submatrix(int col)
     return submatrix;
 }
 
+/* Returns the sum of the diagonal elements of a square matrix.
+ *
+ * Example:
+ *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+ *  >> A.trace()
+ * 
+ * Returns:
+ *  >> 1 + 5 + 9 = 15
+ */
 float Matrix::trace()
 {
     if (!is_square()) {
