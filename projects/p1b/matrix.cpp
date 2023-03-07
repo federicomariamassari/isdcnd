@@ -111,7 +111,7 @@ float Matrix::get_minor(t_grid G)
 /* Returns submatrix formed by deleting first row, j-th column of input matrix.
  *
  * Example:
- *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
  *  >> A.get_submatrix(3);
  * 
  * Returns:
@@ -139,7 +139,7 @@ t_grid Matrix::get_submatrix(int col)
 /* Returns the sum of the diagonal elements of a square matrix.
  *
  * Example:
- *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
  *  >> A.trace();
  * 
  * Returns:
@@ -163,7 +163,7 @@ float Matrix::trace()
 /* Calculates determinant of square matrices up to 3x3.
  *
  * Example:
- *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
  *  >> A.determinant();
  * 
  * Returns:
@@ -200,7 +200,7 @@ float Matrix::determinant()
 /* Calculates the inverse of matrices up to 3x3 using Cayley-Hamilton formulae.
  * 
  * Example:
- *  >> Matrix A = {{1, -2, -3}, {-4, -5, -6}, {7, 8, 9}};
+ *  >> Matrix A = Matrix({{1, -2, -3}, {-4, -5, -6}, {7, 8, 9}});
  *  >> A.inverse();
  * 
  * Returns (tol: 1e-5):
@@ -239,7 +239,7 @@ Matrix Matrix::inverse()
 /* Switch input matrix rows and columns.
  *
  * Example:
- *  >> Matrix A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
  *  >> A.transpose();
  * 
  * Returns:
@@ -258,6 +258,16 @@ Matrix Matrix::transpose()
     return Matrix(transpose);
 }
 
+/* Implements matrix addition.
+ *
+ * Example:
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}});
+ *  >> Matrix B = Matrix({{3, 4, 5}, {6, 7, 8}});
+ *  >> A + B;
+ * 
+ * Returns:
+ *  >> {{4, 6, 8}, {10, 12, 14}}
+ */
 Matrix Matrix::operator+(Matrix other)
 {
     if (rows != other.get_rows() || cols != other.get_cols()) {
@@ -275,6 +285,16 @@ Matrix Matrix::operator+(Matrix other)
     return Matrix(matrix_sum);
 }
 
+/* Implements matrix subtraction.
+ *
+ * Example:
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}});
+ *  >> Matrix B = Matrix({{3, 4, 5}, {6, 7, 8}});
+ *  >> A - B;
+ * 
+ * Returns:
+ *  >> {{-2, -2, -2}, {-2, -2, -2}}
+ */
 Matrix Matrix::operator-(Matrix other)
 {
     if (rows != other.get_rows() || cols != other.get_cols()) {
@@ -293,6 +313,15 @@ Matrix Matrix::operator-(Matrix other)
     return Matrix(matrix_sub);
 }
 
+/* Implements matrix negation.
+ *
+ * Example:
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}});
+ *  >> -A;
+ * 
+ * Returns:
+ *  >> {{-1, -2, -3}, {-4, -5, -6}}
+ */
 Matrix Matrix::operator-()
 {
     t_grid matrix_neg = zeros(rows, cols);
@@ -306,6 +335,16 @@ Matrix Matrix::operator-()
     return Matrix(matrix_neg);
 }
 
+/* Implements matrix multiplication.
+ *
+ * Example:
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}});
+ *  >> Matrix B = Matrix({{3, 4}, {5, 6}, {7, 8}});
+ *  >> A * B;
+ * 
+ * Returns:
+ *  >> {{34, 40}, {79, 94}}
+ */
 Matrix Matrix::operator*(Matrix other)
 {
     if (cols != other.get_rows()) {
@@ -323,6 +362,16 @@ Matrix Matrix::operator*(Matrix other)
     return Matrix(matrix_mul);
 }
 
+/* Implements matrix right-multiplication (multiplication by a scalar).
+ *
+ * Example:
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+ *  >> float x = 2;
+ *  >> A * x;
+ * 
+ * Returns:
+ *  >> {{2, 4, 6}, {8, 10, 12}, {14, 16, 18]}}
+ */
 Matrix Matrix::operator*(float scalar)
 {
     t_grid matrix_rmul = zeros(rows, cols);
@@ -335,6 +384,7 @@ Matrix Matrix::operator*(float scalar)
     return Matrix(matrix_rmul);
 }
 
+// Pretty-prints the elements of a matrix.
 void Matrix::matrix_print()
 {
     for (int i=0; i < rows; i++) {
@@ -345,6 +395,16 @@ void Matrix::matrix_print()
     }
 }
 
+/* Tests whether two matrices are identical (tol: 1e-5).
+ * 
+ * Example:
+ *  >> Matrix A = Matrix({{1, 2, 3}, {4, 5, 6}});
+ *  >> Matrix B = Matrix({{1, 2, -3}, {4, 5, 6}});
+ *  >> A == B;
+ * 
+ *  Returns:
+ *  >> false
+ */
 bool Matrix::operator==(Matrix other)
 {
     // Check if compared matrices have same size
