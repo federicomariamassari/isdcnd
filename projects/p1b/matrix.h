@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <exception>
 
 typedef std::vector< std::vector<float> > t_grid;
 t_grid zeros(int n_rows, int n_cols);
@@ -29,15 +28,14 @@ class Matrix
 
         float trace();
         float determinant();
-        Matrix matrix_inverse();
-        Matrix matrix_transpose();
-        Matrix matrix_addition(Matrix other);
-        Matrix matrix_subtraction(Matrix other);
-        Matrix matrix_negation();
-        Matrix matrix_multiplication(Matrix other);
-        Matrix matrix_right_multiplication(float scalar);
+        Matrix inverse();
+        Matrix transpose();
+        Matrix operator+(Matrix other);     // Matrix addition (A + B)
+        Matrix operator-(Matrix other);     // Matrix subtraction (A - B)
+        Matrix operator-();                 // Matrix negative (-A)
+        Matrix operator*(Matrix other);     // Matrix multiplication (A * B)
+        Matrix operator*(float scalar);     // Matrix right multiplication (x * A)
 
         void matrix_print();
-        bool is_identical(Matrix other);
-
+        bool operator==(Matrix other);      // Are matrices identical (tol: 1e-5)?
 };

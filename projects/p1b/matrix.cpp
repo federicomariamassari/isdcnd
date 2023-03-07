@@ -138,12 +138,47 @@ float Matrix::determinant()
     }
 }
 
-Matrix Matrix::matrix_transpose()
+Matrix Matrix::inverse()
 {
-    t_grid transpose = zeros(rows, cols);
+    /**
+     * Calculates the inverse of matrices up to 3x3.
+     * References: https://en.wikipedia.org/wiki/Invertible_matrix (Cayley-Hamilton formulae).
+     */
+
+    if (!is_square()) {
+        throw length_error("Non-square Matrix does not have an inverse.");
+    }
+
+    if (rows > 3) {
+        throw logic_error("Inversion is not implemented for matrices larger than 3x3.");
+    }
+
+    float det = determinant();
+    if (det == 0) {
+        throw invalid_argument("Inverse does not exist for singular matrices (determinant == 0).");
+    }
+
+    if (rows == 1)
+    {
+        return Matrix({{(float) pow(det, -1)}});
+
+    } else if (rows == 2) {
+        // Cayley-Hamilton decomposition of a 2x2 matrix
+        return (Matrix(identity(rows)) * trace() - Matrix(grid)) * (float) pow(det, -1);
+
+    } else {
+        // Cayley-Hamilton decomposition of a 3x3 matrix
+        Matrix g = (Matrix) grid;
+        return (Matrix(identity(rows)) * (pow(trace(), 2) - (g * g).trace()) * 0.5 - g * trace() + (g * g)) * pow(det, -1);
+    }
+}
+
+Matrix Matrix::transpose()
+{
+    t_grid transpose = zeros(cols, rows);
 
     for (int i=0; i < rows; i++) {
-        for (int j=0; j < rows; j++) {
+        for (int j=0; j < cols; j++) {
             
             transpose[j][i] = grid[i][j];
         }
@@ -151,7 +186,7 @@ Matrix Matrix::matrix_transpose()
     return Matrix(transpose);
 }
 
-Matrix Matrix::matrix_addition(Matrix other)
+Matrix Matrix::operator+(Matrix other)
 {
     if (rows != other.get_rows() || cols != other.get_cols()) {
         throw invalid_argument("Matrices can only be added if their dimensions are the same.");
@@ -168,7 +203,7 @@ Matrix Matrix::matrix_addition(Matrix other)
     return Matrix(matrix_sum);
 }
 
-Matrix Matrix::matrix_subtraction(Matrix other)
+Matrix Matrix::operator-(Matrix other)
 {
     if (rows != other.get_rows() || cols != other.get_cols()) {
         throw invalid_argument("Matrices can only be subtracted if their dimensions are the same.");
@@ -186,7 +221,7 @@ Matrix Matrix::matrix_subtraction(Matrix other)
     return Matrix(matrix_sub);
 }
 
-Matrix Matrix::matrix_negation()
+Matrix Matrix::operator-()
 {
     t_grid matrix_neg = zeros(rows, cols);
 
@@ -199,14 +234,14 @@ Matrix Matrix::matrix_negation()
     return Matrix(matrix_neg);
 }
 
-Matrix Matrix::matrix_multiplication(Matrix other)
+Matrix Matrix::operator*(Matrix other)
 {
     if (cols != other.get_rows()) {
       throw length_error("Number of columns of A must match number of rows of B.");
     }
 
-    Matrix other_transpose = other.matrix_transpose();
-    t_grid matrix_mul = zeros(rows, other_transpose.get_cols());
+    Matrix other_transpose = other.transpose();
+    t_grid matrix_mul = zeros(rows, other.get_cols());
     
     for (int i=0; i < rows; i++) {
         for (int j=0; j < other.get_cols(); j++) {
@@ -216,7 +251,7 @@ Matrix Matrix::matrix_multiplication(Matrix other)
     return Matrix(matrix_mul);
 }
 
-Matrix Matrix::matrix_right_multiplication(float scalar)
+Matrix Matrix::operator*(float scalar)
 {
     t_grid matrix_rmul = zeros(rows, cols);
 
@@ -238,17 +273,19 @@ void Matrix::matrix_print()
     }
 }
 
-bool Matrix::is_identical(Matrix other)
+bool Matrix::operator==(Matrix other)
 {
     // Check if compared matrices have same size
     if (rows != other.get_rows() || cols != other.get_cols()) {
         return false;
     }
 
-    // Check if matrices are identical for each element i,j
+    // Check if matrices are (almost) identical for each element i,j
     for (int i=0; i < rows; i++) {
         for (int j=0; j < cols; j++) {
-            if (grid[i][j] != other.grid[i][j]) {
+
+            // Set maximum tolerance level
+            if(abs(grid[i][j] - other.grid[i][j]) > 1e-5) {
                 return false;
             }
         }
