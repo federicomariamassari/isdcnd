@@ -76,7 +76,7 @@ def test_matrix_subtraction(A, B):
     assert equal(actual, expected)
 
 
-def test_matrix_negative(A, B):
+def test_matrix_negative(A):
 
     expected = Matrix([
         [-1, -2],
