@@ -18,6 +18,8 @@ __[Link to code](/projects/p1)__
 
 ### Output of `tests/test.py`
 
+Running `test.py` in PyCharm produces:
+
 ```
 ============================= test session starts ==============================
 collecting ... collected 14 items
