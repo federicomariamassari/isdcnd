@@ -87,7 +87,7 @@ def test_matrix_negative(A):
     assert equal(actual, expected)
 
 
-def test_matrix_transpose(A, B):
+def test_matrix_transpose(A):
 
     expected = Matrix([
         [1, 3],
