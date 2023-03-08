@@ -8,6 +8,10 @@ My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 
 ## Project 1: Implement a Matrix Class
 
+### Overview
+
+_Refresh object-oriented programming and linear algebra skills by implementing a Matrix Class in pure Python._
+
 __[Link to code](/projects/p1)__
 
 ## Project 1.B: Implement a Matrix Class in C++
