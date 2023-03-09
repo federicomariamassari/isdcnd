@@ -30,7 +30,7 @@ __[Link to code](/projects/p1b)__
 
 ### How to Compile and Run the Project
 
-We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p1b`, with `$whoami` the username of the current user (verify on console). Compile both `tests.cpp` and `matrix.cpp` as follows:
+We suppose the project resides at address `/home/$whoami/workspace/udacity-isdcnd/projects/p1b`, with `$whoami` the username of the current user (verify on console). Compile both `tests.cpp` and `matrix.cpp`:
 
 ```bash
 cd /home/$whoami/workspace/udacity-isdcnd/projects/p1b
@@ -77,6 +77,8 @@ g++ -std=c++11 tests.cpp
 ## Project 3 (Optional): Optimize Histogram Filter
 
 ### Overview
+
+_Optimize functioning (but inefficient) code using low-level language features that make C++ fast._
 
 __[Link to code](/projects/p3)__
 
