@@ -18,7 +18,7 @@ __[Link to code](/projects/p1)__
 
 ### Output of `tests/test.py`
 
-Module `test.py` contains a pytest unit testing suite that can be run in PyCharm or via command line. All tests pass.
+`test.py` is a pytest unit testing suite that can be run in PyCharm or via command line. All tests pass.
 
 ## Project 1.B: Implement a Matrix Class in C++
 
