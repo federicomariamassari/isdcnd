@@ -80,8 +80,7 @@ g++ -std=c++11 tests.cpp
 
 _Optimize functioning (but inefficient) code using low-level language features that make C++ fast._
 
-Starting from an existing C++ implementation of the histogram filter from Project 2, I applied basic optimization techniques such as reserving space for vectors, passing by reference, and avoiding extra variables or control flow statements,
-to enhance speed and decrease memory consumption.
+Starting from an existing C++ implementation of the histogram filter from Project 2, I applied basic optimization techniques such as reserving space for vectors, passing by reference, and avoiding extra variables or control flow statements to enhance code speed and decrease memory consumption.
 
 __[Link to code](/projects/p3)__
 
