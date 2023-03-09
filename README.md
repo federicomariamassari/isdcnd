@@ -24,7 +24,7 @@ __[Link to code](/projects/p1)__
 
 ### Overview
 
-To prepare for the upcoming projects, I converted the Python matrix class from Project 1 to C++ and provided basic unit testing. Operator overloading is used for most operations, to enhance readability.
+To prepare for the upcoming project, I converted the Python matrix class to C++ and added unit testing. Operator overloading is used for most operations for better readability and comparison with the Python implementation, which uses magic methods like `__add__` or `__rmul__` to achieve the same result.
 
 __[Link to code](/projects/p1b)__
 
