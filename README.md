@@ -10,39 +10,15 @@ My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 
 ### Overview
 
-_Refresh object-oriented programming and linear algebra skills by implementing a Matrix Class in pure Python._
+_Refresh object-oriented programming and linear algebra skills by designing a Matrix Class in pure Python._
 
-OOP and linear algebra are essential skills for self-driving cars. This projects 
+OOP and linear algebra are building blocks of autonomous systems like self-driving cars. This projects implements core operations of a matrix class such as addition, subtraction, negation, multiplication (by matrix and scalar), transpose and inverse.
 
 __[Link to code](/projects/p1)__
 
 ### Output of `tests/test.py`
 
-Running `test.py` in PyCharm produces:
-
-```
-============================= test session starts ==============================
-collecting ... collected 14 items
-
-test.py::test_matrix_addition PASSED                                     [  7%]
-test.py::test_matrix_subtraction PASSED                                  [ 14%]
-test.py::test_matrix_negative PASSED                                     [ 21%]
-test.py::test_matrix_transpose PASSED                                    [ 28%]
-test.py::test_trace_on_non_square_matrix_raises_value_error PASSED       [ 35%]
-test.py::test_trace PASSED                                               [ 42%]
-test.py::test_determinant_on_non_square_matrix_raises_value_error PASSED [ 50%]
-test.py::test_determinant_on_matrices_larger_than_3x3_raises_not_implemented_error PASSED [ 57%]
-test.py::test_determinant_1x1 PASSED                                     [ 64%]
-test.py::test_determinant_2x2 PASSED                                     [ 71%]
-test.py::test_determinant_3x3 PASSED                                     [ 78%]
-test.py::test_matrix_inverse_on_singular_matrix_raises_value_error PASSED [ 85%]
-test.py::test_matrix_inverse_2x2 PASSED                                  [ 92%]
-test.py::test_matrix_inverse_3x3 PASSED                                  [100%]
-
-============================== 14 passed in 0.01s ==============================
-
-Process finished with exit code 0
-```
+Module `test.py` contains a pytest unit testing suite that can be run in PyCharm or via command line. All tests pass.
 
 ## Project 1.B: Implement a Matrix Class in C++
 
