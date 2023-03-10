@@ -10,16 +10,33 @@ import numbers
 
 
 def zeros(height, width):
-    """Creates a matrix of zeroes."""
+    """Creates a matrix of zeros.
+
+    Example:
+
+    > zeroes = zeros(2, 3)
+    > print(zeroes)
+      0.0  0.0  0.0
+      0.0  0.0  0.0
+    """
     g = [[0. for _ in range(width)] for __ in range(height)]
     return Matrix(g)
 
 
 def identity(n):
-    """Creates an (n * n) identity matrix."""
+    """Creates an (n * n) identity matrix.
+
+    Example:
+
+    > eye = identity(2)
+    > print(eye)
+      1.0  0.0
+      0.0  1.0
+    """
     I = zeros(n, n)
     for i in range(n):
         I.g[i][i] = 1.
+
     return I
 
 
@@ -35,7 +52,6 @@ class Matrix:
 
            References: https://mathworld.wolfram.com/Determinant.html (minors, cofactors, submatrices).
         """
-
         def get_submatrix(matrix: list, col: int) -> Matrix:
             """Returns submatrix formed by deleting first row, j-th column
                (col) of input matrix.
@@ -77,7 +93,14 @@ class Matrix:
             return det
 
     def trace(self) -> float:
-        """Calculates the trace of a matrix (sum of diagonal entries)."""
+        """Calculates the trace of a matrix (sum of diagonal entries).
+
+        Example:
+
+        > my_matrix = Matrix([ [1, 2], [3, 4] ])
+        > my_matrix.trace()
+          5
+        """
         if not self.is_square():
             raise ValueError('Cannot calculate the trace of a non-square matrix.')
 
@@ -86,7 +109,15 @@ class Matrix:
     def inverse(self):
         """Calculates the inverse of matrices up to 3x3.
 
-           References: https://en.wikipedia.org/wiki/Invertible_matrix (Cayley-Hamilton formulae).
+        Example:
+
+        > my_matrix = Matrix([ [1, 2], [3, 4] ])
+        > inverse  = my_matrix.inverse()
+        > print(inverse)
+          -2.0  1.0
+          1.5  -0.5
+
+        References: https://en.wikipedia.org/wiki/Invertible_matrix (Cayley-Hamilton formulae).
         """
         if not self.is_square():
             raise ValueError('Non-square Matrix does not have an inverse.')
@@ -111,8 +142,16 @@ class Matrix:
                                    self.trace() * self + (self*self))
 
     def T(self):
-        """Returns a transposed copy of this Matrix."""
+        """Returns a transposed copy of this Matrix.
 
+        Example:
+
+        > my_matrix = Matrix([ [1, 2], [3, 4] ])
+        > transpose  = my_matrix.T()
+        > print(transpose)
+          1  3
+          2  4
+        """
         # Create a self.h * self.w matrix of zeros
         transpose = zeros(self.w, self.h)
 
@@ -124,6 +163,7 @@ class Matrix:
         return transpose
 
     def is_square(self):
+        """Test if the number of rows and columns of a matrix are the same."""
         return self.h == self.w
 
     def __getitem__(self, idx):
@@ -148,10 +188,21 @@ class Matrix:
         for row in self.g:
             s += " ".join(["{} ".format(x) for x in row])
             s += "\n"
+
         return s
 
     def __add__(self, other):
-        """Defines the behavior of the + operator."""
+        """Defines the behavior of the + operator.
+
+        Example:
+
+        > A = Matrix([ [1, 2], [3, 4] ])
+        > B = Matrix([ [5, 6], [7, 8] ])
+        > matrix_sum = A + B
+        > print(matrix_sum)
+          6  8
+          10  12
+        """
         if self.h != other.h or self.w != other.w:
             raise ValueError('Matrices can only be added if their dimensions are the same.')
 
@@ -171,10 +222,9 @@ class Matrix:
         > my_matrix = Matrix([ [1, 2], [3, 4] ])
         > negative  = -my_matrix
         > print(negative)
-          -1.0  -2.0
-          -3.0  -4.0
+          -1  -2
+          -3  -4
         """
-
         matrix_neg = zeros(self.h, self.w)
 
         for i in range(self.h):
@@ -184,8 +234,17 @@ class Matrix:
         return matrix_neg
 
     def __sub__(self, other):
-        """Defines the behavior of - operator (as subtraction)."""
+        """Defines the behavior of - operator (as subtraction).
 
+        Example:
+
+        > A = Matrix([ [1, 2], [3, 4] ])
+        > B = Matrix([ [5, 6], [7, 8] ])
+        > matrix_diff = A - B
+        > print(matrix_diff)
+          -2  -2
+          -2  -2
+        """
         matrix_diff = zeros(self.h, self.w)
 
         for i in range(self.h):
@@ -195,7 +254,17 @@ class Matrix:
         return matrix_diff
 
     def __mul__(self, other):
-        """Defines the behavior of * operator (matrix multiplication)."""
+        """Defines the behavior of * operator (matrix multiplication).
+
+        Example:
+
+        > A = Matrix([ [1, 2], [3, 4] ])
+        > B = Matrix([ [5, 6], [7, 8] ])
+        > matrix_mul = A * B
+        > print(matrix_mul)
+          19  22
+          43  50
+        """
         def dot_product(a: list, b: list) -> float:
             return sum([a[k] * b[k] for k in range(len(a))])
 
@@ -219,8 +288,8 @@ class Matrix:
         > identity = Matrix([ [1,0], [0,1] ])
         > doubled  = 2 * identity
         > print(doubled)
-          2.0  0.0
-          0.0  2.0
+          2  0
+          0  2
         """
         if isinstance(other, numbers.Number):
 
