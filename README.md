@@ -14,6 +14,15 @@ _Refresh object-oriented programming and linear algebra skills by designing a Ma
 
 OOP and linear algebra are building blocks of autonomous systems like self-driving cars. This projects implements core operations of a matrix class such as addition, subtraction, negation, multiplication (by matrix and scalar), transpose and inverse.
 
+The matrix class can then be used to run Kálmán filters for object tracking, smoothing out lidar and radar data to make more accurate predictions:
+
+<table>
+  <tr>
+    <td align="center"><img align="center" src="./projects/p1/img/img0.png"/></td>
+    <td align="center"><img align="center" src="./projects/p1/img/img1.png"/></td>
+  </tr>
+</table>
+
 __[Link to code](/projects/p1)__
 
 ### Output of `tests/test.py`
