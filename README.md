@@ -59,7 +59,7 @@ All tests passed.
 
 _Translate an existing Python implementation of the robot localization problem to C++._
 
-In this project, the bidimensional Kálmán filter is used to locate a robot within an environment (a grid with coloured cells). At first, the robot does not know where it is, so uniform probability is placed to all cells. The robot then moves across the xy-plane and updates its belief. At this stage some blur, or noise, can be injected: mathematically, this is represented as probability spilling over adjacent cells (on a 3x3 window). Finally, the robot senses the environment and revises its estimates once more. This process is repeated over and over, and soon the belief consolidates.
+In this project, the bidimensional Kálmán filter is used to locate a robot within an environment (a grid with coloured cells). At first, the robot does not know where it is, so it places uniform probability to all cells. The robot then moves across the xy-plane and updates its belief. At this stage some blur, or noise, can be injected: mathematically, this is represented as probability spilling over adjacent cells (on a 3x3 window). Finally, the robot senses the environment and revises its estimates once more. This process is repeated over and over, and soon the belief consolidates.
 
 __[Link to code](/projects/p2)__
 
