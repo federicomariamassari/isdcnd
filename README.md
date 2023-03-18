@@ -55,6 +55,10 @@ All tests passed.
 
 ## Project 2: Translate Python to C++
 
+_Translate an existing Python implementation of the robot localization problem to C++._
+
+
+
 ### Overview
 
 __[Link to code](/projects/p2)__
