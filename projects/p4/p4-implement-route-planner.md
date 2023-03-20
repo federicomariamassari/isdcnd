@@ -47,7 +47,9 @@ _What is an admissible heuristic?_
 Answer:
 
 * A heuristic is _admissible_ if it never overestimates the cost of reaching the goal $G$ [4].
+
 * That is, for each node $n$, $h(n)$ must always be strictly smaller than the true cost (i.e., the distance) of getting to the goal along the current path. For this reason, we also say that an admissible function $h$ is optimistic.
+
 * An example of admissible heuristic is the straight-line distance because it's the shortest possible path between two points, and thus can never overestimate the true distance to the goal.
 
 ---
@@ -76,3 +78,5 @@ Explanation:
 2. https://en.wikipedia.org/wiki/Heuristic_(computer_science)
 3. https://en.wikipedia.org/wiki/Consistent_heuristic
 4. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
+
+[Home](../../README.md)
