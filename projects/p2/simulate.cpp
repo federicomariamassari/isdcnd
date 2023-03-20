@@ -44,10 +44,9 @@ vector<char> Simulation::get_colors() {
 
     vector<char> all_colors;
     char color;
-    int i,j;
     
-    for (i=0; i < height; i++) {
-        for (j=0; j < width; j++) {
+    for (int i=0; i < height; i++) {
+        for (int j=0; j < width; j++) {
 
             color = grid[i][j];
             
