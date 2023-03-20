@@ -133,4 +133,4 @@ _Calculate the shortest path between two points on a map using A* search._
 
 __[Link to code](/projects/p4)__
 
-[](./projects/p4/img/a-star-search.png)
+![](./projects/p4/img/a-star-search.png)
