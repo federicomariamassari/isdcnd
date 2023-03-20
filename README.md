@@ -129,4 +129,6 @@ Running on Macbook Pro M1 Max prints out the following output (slightly varying 
 
 ### Overview
 
+_Calculate the shortest path between two points on a map using $A^*$-search._
+
 __[Link to code](/projects/p4)__
