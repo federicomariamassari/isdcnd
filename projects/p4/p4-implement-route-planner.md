@@ -4,6 +4,8 @@
 
 _How would you explain A-Star in layman terms?_
 
+Answer:
+
 * __A* search__ is a very popular path-finding algorithm, most commonly used in problems such as searching for the best possible route to a target destination. A* search looks for the cheapest path, for example in terms of mileage, by minimizing both the cost of passing through a particular node (i.e., location) and the cost to reach the goal from that node. A* relies partly on heuristics, or "shortcuts" which are not necessarily accurate or realistic (for example, the straight-line distance), but are effective in finding a satisfactory solution fast [1] [2] [3]. Think of A* search as the algorithm that underpins popular applications like Google Maps or many GPS softwares. 
 
 Resources:
@@ -11,7 +13,11 @@ Resources:
 2. Udacity, "The Search Problem", "23. On Uniform Cost"; "24. A* Search"
 3. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
 
+---
+
 _How does A-Star search algorithm differ from Uniform cost search? What about Best First search?_
+
+Answer:
 
 * __Uniform cost search__ is an _uninformed search strategy_, a family of techniques that do not use extra information (e.g., heuristics) beyond the basic formulation of a problem when searching for a goal: they simply "generate successors and discriminate between goal and non-goal nodes" [1], but know nothing about which non-goal node is a better candidate to reach the goal state. Thus, uniform cost search aims to expand the node with the lowest path cost $g(n)$ (the cost to reach a particular node $n$ from the start node) but - unlike A* search - does not employ any heuristic function $h(n)$ to evaluate how good such node actually is. One major drawback of this strategy is that it expands uniformly in all directions (like the contours of a topological map) because the search is not really directed towards the goal [2]. So on average, this technique could waste a considerable amount of resources (time, space) in exploring paths that may not be the best, and could be prohibitive if the search space is very big. Uniform cost search relies on cost function: $f(n) = g(n)$.
 
@@ -21,7 +27,11 @@ References:
 1. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
 2. Udacity, "The Search Problem", "23. On Uniform Cost"
 
-__What is a heuristic?__
+---
+
+_What is a heuristic?_
+
+Answer:
 
 * Heuristics are problem-solving techniques that use practical methods, or shortcuts, which are not necessarily optimal but nevertheless useful to reaching a satisfactory solution fast [1]. These shortcuts are used whenever more rigorous methods either fail, or would take too long, to find an acceptable solution [2].
 
@@ -29,7 +39,11 @@ __What is a heuristic?__
 
   $h(n)$ = estimated cost of the cheapest path from the state at node $n$ to a goal state.
 
+---
+
 _What is an admissible heuristic?_
+
+Answer:
 
 * A heuristic is _admissible_ if it never overestimates the cost of reaching the goal $G$ [3] [4].
 * That is, for each node $n$, $h(n)$ must always be strictly smaller than the true cost (i.e., the distance) of getting to the goal along the current path. For this reason, we also say that an admissible function $h$ is optimistic.
@@ -39,9 +53,14 @@ References:
 3. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
 4. Udacity, "The Search Problem", "29. A* Search 5". 
 
+---
+
 __Some__ admissible heuristic are consistent.
 
+Explanation:
+
 * Not all admissible heuristics are also consistent, although finding an example is not particularly easy [3].
+
 * Admissibility always requires that a heuristic never overestimate the cost of reaching the goal from a particular node $n$. However, it does not tell anything, at each step of the process, about the relationship between the heuristic and the sum between the step cost to reach a successor node $n'$ from $n$ plus that to reach the goal from $n'$. Admissibility guarantees that the non-overestimation requirement holds _overall_, but does not guarantee that the same works for all intermediate steps towards reaching the goal (i.e., consistency).
 
 References:
@@ -49,9 +68,14 @@ References:
 3. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
 4. https://en.wikipedia.org/wiki/Consistent_heuristic
 
+---
+
 __All__ Consistent heuristic are admissible.
 
+Explanation:
+
 * As consistency is a stronger requirement than admissibility, _all_ consistent heuristics are also admissible [3].
+
 * Consistency requires that the estimated cost $h(n)$ of reaching the goal from node $n$ be never greater than the step cost of reching $n'$ from $n$ plus the actual cost of reaching the goal from $n'$. This is the basic triangle inequality [3], in which the length of a side cannot be greater than the sum of that of the other two. Hence, the heuristic function never overestimates the cost to reach the goal, but equals it at most (the definition of admissibile heuristic).
 
 References:
