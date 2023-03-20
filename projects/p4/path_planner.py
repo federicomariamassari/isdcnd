@@ -28,7 +28,7 @@ class PathPlanner:
         return total_path
 
     def _reset(self):
-        """Private method used to reset the closedSet, openSet, cameFrom, gScore, fScore, and path attributes"""
+        """Private method used to reset the closed_set, open_set, came_from, g_score, f_score, and path attributes"""
 
         self.closed_set = None
         self.open_set = None
