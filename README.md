@@ -124,3 +124,9 @@ Running on Macbook Pro M1 Max prints out the following output (slightly varying 
 | Duration milliseconds `normalize.cpp` | 46.425 | 13.760 | 70% |
 | Duration milliseconds `move.cpp` | 39.099 | 11.598 | 70% |
 | __Total running time__ | __276.084__ | __92.735__ | __66%__ |
+
+## [Project 4: Implement Route Planner](/projects/p4/p4-implement-route-planner.md)
+
+### Overview
+
+__[Link to code](/projects/p4)__
