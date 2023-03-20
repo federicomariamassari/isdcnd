@@ -2,7 +2,7 @@
 
 # Project 4: Implement Route Planner
 
----
+## Questions
 
 _How would you explain A-Star in layman terms?_
 
@@ -64,7 +64,7 @@ Explanation:
 
 ---
 
-__All__ Consistent heuristic are admissible.
+__All__ consistent heuristic are admissible.
 
 Explanation:
 
