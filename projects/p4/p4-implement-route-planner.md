@@ -82,9 +82,3 @@ Explanation:
 4. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
 
 [Home](../../README.md)
-
-## Project 5 (Optional): Reconstructing Trajectories from Sensor Data
-
-### Overview
-
-_Reconstruct a vehicle's XY-trajectory using raw acceleration, displacement, and angular rotation data from the vehicle's accelerometer, odometer, and rate gyros._

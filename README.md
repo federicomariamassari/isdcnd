@@ -138,3 +138,9 @@ __[Link to code](/projects/p4)__
 
 __Figure 2: Best route between start (black) and goal (yellow) nodes__
 ![](./projects/p4/img/a-star-search.png)
+
+## Project 5 (Optional): Reconstructing Trajectories from Sensor Data
+
+### Overview
+
+_Reconstruct a vehicle's XY-trajectory using raw acceleration, displacement, and angular rotation data from the vehicle's accelerometer, odometer, and rate gyros._
