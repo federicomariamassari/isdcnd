@@ -12,7 +12,7 @@ Answer:
 
 ---
 
-_How does A-Star search algorithm differ from Uniform cost search? What about Best First search?_
+_How does A-Star search algorithm differ from Uniform cost search? What about Best-First search?_
 
 Answer:
 
@@ -74,9 +74,9 @@ Explanation:
 
 ## Resources
 
-1. https://en.wikipedia.org/wiki/Heuristic
-2. https://en.wikipedia.org/wiki/Heuristic_(computer_science)
-3. https://en.wikipedia.org/wiki/Consistent_heuristic
+1. [Wikipedia: Heuristic](https://en.wikipedia.org/wiki/Heuristic)
+2. [Wikipedia: Heuristic (Computer Science)](https://en.wikipedia.org/wiki/Heuristic_(computer_science))
+3. [Wikipedia: Consistent Heuristic](https://en.wikipedia.org/wiki/Consistent_heuristic)
 4. Russell S., Norvig P.: "Artificial Intelligence: A Modern Approach", 4th Ed. (2020)
 
 [Home](../../README.md)
