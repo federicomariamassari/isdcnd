@@ -2,7 +2,7 @@
 
 # Project 4: Implement Route Planner
 
-Part 2/2 of "Implement Route Planner" project, Udacity Intro to Self-Driving Car Nanodegree.
+Part 2/2 of "Implement Route Planner" project, Udacity's Intro to Self-Driving Car Nanodegree.
 
 ## Questions
 
