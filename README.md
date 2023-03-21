@@ -14,10 +14,11 @@ _Refresh object-oriented programming and linear algebra skills by designing a Ma
 
 OOP and linear algebra are building blocks of autonomous systems like self-driving cars. This projects implements core operations of a matrix class such as addition, subtraction, negation, multiplication (by matrix and scalar), transpose and inverse.
 
-The matrix class can then be used to run Kálmán filters for object tracking, smoothing out lidar and radar data to make more accurate predictions.
+The matrix class can then be used to run Kálmán filters for object tracking, smoothing out lidar and radar data to make more accurate predictions [Figure 1].
 
 __[Link to code](/projects/p1)__
 
+__Figure 1: Kálmán filter smoothing effect__
 <table>
   <tr>
     <td align="center"><img align="center" src="./projects/p1/img/img0.png"/></td>
@@ -131,8 +132,9 @@ Running on Macbook Pro M1 Max prints out the following output (slightly varying 
 
 _Calculate the shortest path between two points on a map using A* search._
 
-This project required filling out methods of a partially written `PathPlanner` class implementing A* search, a popular path-finding algorithm most commonly used in problems such as looking for the best possible route to a target destination. Part of the submission was a Q&A section, available in the dedicated README.
+This project required filling out methods of a partially written `PathPlanner` class implementing A* search, a popular path-finding algorithm most commonly used in problems such as looking for the best possible route to a target destination [Figure 2]. Part of the submission was a Q&A section, available in the dedicated README.
 
 __[Link to code](/projects/p4)__
 
+__Figure 2: Best route between start (black) and goal (yellow) nodes__
 ![](./projects/p4/img/a-star-search.png)
