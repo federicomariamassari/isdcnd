@@ -131,6 +131,8 @@ Running on Macbook Pro M1 Max prints out the following output (slightly varying 
 
 _Calculate the shortest path between two points on a map using A* search._
 
+This project required filling out methods of a partially written `PathPlanner` class implementing A* search, a popular path-finding algorithm most commonly used in problems such as looking for the best possible route to a target destination. Part of the submission was a Q&A section, available in the dedicated README.
+
 __[Link to code](/projects/p4)__
 
 ![](./projects/p4/img/a-star-search.png)
