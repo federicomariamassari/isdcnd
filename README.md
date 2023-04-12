@@ -146,3 +146,6 @@ __Figure 2: Best route between start (black) and goal (yellow) nodes__
 _Reconstruct a vehicle's XY-trajectory using raw acceleration, displacement, and angular rotation data from the vehicle's accelerometer, odometer, and rate gyros._
 
 In this ungraded assignment I create a plot of vehicle trajectories starting from input raw sensor data (timestamp, displacement, yaw rate, acceleration).
+
+
+__[Link to code](/projects/p5)__
