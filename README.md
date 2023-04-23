@@ -155,5 +155,4 @@ _Reconstruct a vehicle's XY-trajectory using raw acceleration, displacement, and
 
 In this ungraded assignment I create a plot of vehicle trajectories starting from input raw sensor data (timestamp, displacement, yaw rate, acceleration).
 
-
 __[Link to code](/projects/p5)__
