@@ -2,7 +2,7 @@
 
 My Udacity Intro to Self-Driving Cars Nanodegree projects, in Python and C++.
 
-## Certification
+## [Certificate of Completion](https://graduation.udacity.com/confirm/GXYSGKGG)
 
 ![Certificate of Completion](certificate-of-completion.png)
 
